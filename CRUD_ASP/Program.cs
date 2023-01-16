@@ -25,11 +25,3 @@ app.MapControllerRoute(
     pattern: "{controller=Home}/{action=Index}/{id?}");
 
 app.Run();
-
-//test
-
-//test4
-
-//test2
-
-//test3
