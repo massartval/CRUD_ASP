@@ -8,7 +8,7 @@ namespace CRUD_ASP.Context
     {
         public DbSet<User> Users { get; set; }
 
-        private string _connectionstring = @"Data Source=LAP19038\SQLEXPRESS;Initial Catalog=CRUD_ASP;Integrated Security=True;Connect Timeout=30;Encrypt=False;TrustServerCertificate=False;ApplicationIntent=ReadWrite;MultiSubnetFailover=False";
+        private string _connectionstring = @"Data Source=(localdb)\MSSQLLocalDB;Initial Catalog=CRUD_ASP;Integrated Security=True;Connect Timeout=30;Encrypt=False;TrustServerCertificate=False;ApplicationIntent=ReadWrite;MultiSubnetFailover=False";
         
         protected override void OnConfiguring(DbContextOptionsBuilder optionsBuilder)
         {
