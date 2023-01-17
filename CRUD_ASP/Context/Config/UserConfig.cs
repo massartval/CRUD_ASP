@@ -11,16 +11,29 @@ namespace CRUD_ASP.Context.Config
             builder.ToTable("users");
             builder.HasKey(t => t.Id);
             builder.Property(t => t.Id).ValueGeneratedOnAdd();
+            builder.Property(t => t.FirstName).IsRequired();
+            builder.Property(t => t.LastName).IsRequired();
+            builder.Property(t => t.BirthDate).IsRequired();
+            builder.Property(t => t.Email).IsRequired();
+            builder.Property(t => t.Password).IsRequired();
             builder.HasData(
                 new User
                 {
                     Id = 1,
-                    Name = "Babar"
+                    FirstName = "Babar", 
+                    LastName = "Leroi",
+                    BirthDate = new DateTime(1931,01,01),
+                    Email = "Babar@gmail.com",
+                    Password = "Babar"
                 },
                 new User
                 {
                     Id = 2,
-                    Name = "Céleste"
+                    FirstName = "Celeste",
+                    LastName = "Lareine",
+                    BirthDate = new DateTime(1932,02,02),
+                    Email = "Celeste@skynet.be",
+                    Password = "Celeste"
                 }
             );
         }
