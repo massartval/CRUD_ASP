@@ -1,6 +1,8 @@
 ﻿using CRUD_ASP.Context;
 using CRUD_ASP.Models;
+using CRUD_ASP.Models.ViewModel;
 using Microsoft.AspNetCore.Http;
+using Microsoft.AspNetCore.Identity;
 using Microsoft.AspNetCore.Mvc;
 
 namespace CRUD_ASP.Controllers
@@ -38,18 +40,24 @@ namespace CRUD_ASP.Controllers
         // POST: UserController/Create
         [HttpPost]
         [ValidateAntiForgeryToken]
-        public ActionResult Create(IFormCollection collection)
+        public ActionResult Create(UserForm form)
         {
-            try
+            if (ModelState.IsValid)
             {
-                // Ajouter l'utilisateur
-                return RedirectToAction(nameof(Index));
+                User u = new User()
+                {
+                    Name = form.Name
+                    
+                };
+
+                using (DataContext context = new DataContext())
+                {
+                    context.Users.Add(u);
+                    context.SaveChanges();
+                }
+                return RedirectToAction("Index");
             }
-            catch
-            {
-                // Ajouter un message d'erreur
-                return View();
-            }
+            return View(form);
         }
 
         // GET: UserController/Edit/5
