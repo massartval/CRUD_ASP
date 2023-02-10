@@ -11,18 +11,18 @@ namespace CRUD_ASP.Context.Config
             builder.ToTable("users");
             builder.HasKey(t => t.Id);
             builder.Property(t => t.Id).ValueGeneratedOnAdd();
-            builder.HasData(
-                new User
-                {
-                    Id = 1,
-                    Name = "Babar"
-                },
-                new User
-                {
-                    Id = 2,
-                    Name = "Céleste"
-                }
-            );
+            //builder.HasData(
+            //    new User
+            //    {
+            //        Id = 1,
+            //        FirstName = "Babar"
+            //    },
+            //    new User
+            //    {
+            //        Id = 2,
+            //        FirstName = "Céleste"
+            //    }
+            //);
         }
     }
 }

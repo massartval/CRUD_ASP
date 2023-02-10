@@ -24,13 +24,28 @@ namespace CRUDASP.Migrations
 
             modelBuilder.Entity("CRUD_ASP.Models.User", b =>
                 {
-                    b.Property<int?>("Id")
+                    b.Property<int>("Id")
                         .ValueGeneratedOnAdd()
                         .HasColumnType("int");
 
-                    SqlServerPropertyBuilderExtensions.UseIdentityColumn(b.Property<int?>("Id"));
+                    SqlServerPropertyBuilderExtensions.UseIdentityColumn(b.Property<int>("Id"));
 
-                    b.Property<string>("Name")
+                    b.Property<DateTime>("BirthDate")
+                        .HasColumnType("datetime2");
+
+                    b.Property<string>("Email")
+                        .IsRequired()
+                        .HasColumnType("nvarchar(max)");
+
+                    b.Property<string>("FirstName")
+                        .IsRequired()
+                        .HasColumnType("nvarchar(max)");
+
+                    b.Property<string>("LastName")
+                        .IsRequired()
+                        .HasColumnType("nvarchar(max)");
+
+                    b.Property<string>("Password")
                         .IsRequired()
                         .HasColumnType("nvarchar(max)");
 
@@ -42,12 +57,20 @@ namespace CRUDASP.Migrations
                         new
                         {
                             Id = 1,
-                            Name = "Babar"
+                            BirthDate = new DateTime(1931, 1, 1, 0, 0, 0, 0, DateTimeKind.Unspecified),
+                            Email = "Babar@gmail.com",
+                            FirstName = "Babar",
+                            LastName = "Leroi",
+                            Password = "Babar"
                         },
                         new
                         {
                             Id = 2,
-                            Name = "Céleste"
+                            BirthDate = new DateTime(1932, 2, 2, 0, 0, 0, 0, DateTimeKind.Unspecified),
+                            Email = "Celeste@skynet.be",
+                            FirstName = "Celeste",
+                            LastName = "Lareine",
+                            Password = "Celeste"
                         });
                 });
 #pragma warning restore 612, 618

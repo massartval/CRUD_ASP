@@ -1,6 +1,5 @@
 ﻿using CRUD_ASP.Context;
 using CRUD_ASP.Models;
-using Microsoft.AspNetCore.Http;
 using Microsoft.AspNetCore.Mvc;
 
 namespace CRUD_ASP.Controllers
